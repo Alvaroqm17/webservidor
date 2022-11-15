@@ -11,11 +11,11 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a class="nav-link active" aria-current="page" href="http://localhost/webservidor/06_bases_de_datos/tienda_ropa/public/">Inicio</a>
-        <a class="nav-link" href="http://localhost/webservidor/06_bases_de_datos/tienda_ropa/public/prendas/">Prendas</a>
-        <a class="nav-link" href="http://localhost/webservidor/06_bases_de_datos/tienda_ropa/public/clientes/">Clientes <span class="badge bg-success">New</span></a>
-        <a class="nav-link" href="http://localhost/webservidor/06_bases_de_datos/tienda_ropa/public/compras/">Compras</a>
-        <a class="nav-link" href="http://localhost/webservidor/06_bases_de_datos/tienda_ropa/public/compras/comprar.php">Nueva compra</a>
+        <a class="nav-link active" aria-current="page" href="http://localhost/06_bases_de_datos/tienda_ropa/public/">Inicio</a>
+        <a class="nav-link" href="http://localhost/06_bases_de_datos/tienda_ropa/public/prendas/">Prendas</a>
+        <a class="nav-link" href="http://localhost/06_bases_de_datos/tienda_ropa/public/clientes/">Clientes <span class="badge bg-success">New</span></a>
+        <a class="nav-link" href="http://localhost/06_bases_de_datos/tienda_ropa/public/compras/">Compras</a>
+        <a class="nav-link" href="http://localhost/06_bases_de_datos/tienda_ropa/public/compras/comprar_prenda.php">Nueva compra</a>
       </div>
     </div>
   </div>

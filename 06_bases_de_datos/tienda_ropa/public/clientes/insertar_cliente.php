@@ -14,8 +14,8 @@
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $usuario = $_POST["usuario"];
             $nombre = $_POST["nombre"];
-            $primer_apellido = $_POST["apellido_1"];
-            $segundo_apellido = $_POST["apellido_2"];
+            $primer_apellido = $_POST["primer_apellido"];
+            $segundo_apellido = $_POST["segundo_apellido"];
             $fecha_nacimiento = $_POST["fecha_nacimiento"];
 
             if (!empty($usuario) && !empty($nombre) && 
@@ -27,7 +27,7 @@
     
 
                 $sql = "INSERT INTO clientes (usuario, nombre, 
-                    apellido_1, apellido_2, 
+                    primer_apellido, segundo_apellido, 
                     fecha_nacimiento) VALUES ('$usuario', '$nombre',
                     '$primer_apellido', $segundo_apellido,
                     '$fecha_nacimiento')";
@@ -57,11 +57,11 @@
                     </div>
                     <div class="form-group mb-3">
                         <label class="form-label">Primer apellido</label>
-                        <input class="form-control" type="text" name="apellido_1">
+                        <input class="form-control" type="text" name="primer_apellido">
                     </div>
                     <div class="form-group mb-3">
                         <label class="form-label">Segundo apellido</label>
-                        <input class="form-control" type="text" name="apellido_2">
+                        <input class="form-control" type="text" name="segundo_apellido">
                     </div>
                     <div class="form-group mb-3">
                         <label class="form-label">Fecha de nacimiento</label>

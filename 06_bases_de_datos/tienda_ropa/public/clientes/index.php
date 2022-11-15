@@ -78,8 +78,8 @@
                                     $id = $fila["id"];
                                     $usuario = $fila["usuario"];
                                     $nombre = $fila["nombre"];
-                                    $primer_apellido = $fila["apellido_1"];
-                                    $segundo_apellido = $fila["apellido_2"];
+                                    $primer_apellido = $fila["primer_apellido"];
+                                    $segundo_apellido = $fila["segundo_apellido"];
                                     $fecha_nacimiento = $fila["fecha_nacimiento"];
                                     //$avatar = $fila["avatar"];
                                     ?>

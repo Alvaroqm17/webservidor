@@ -28,7 +28,7 @@
                     </thead>
                     <tbody>
                         <?php
-                        $sql = "SELECT * FROM clientes_prendas";
+                        $sql = "SELECT * FROM vw_clientes_prendas";
                         $resultado = $conexion -> query($sql);
 
                         if ($resultado -> num_rows > 0) {

@@ -1,8 +1,8 @@
 <?php
     $servidor = 'localhost';
-    $usuario = 'root';
-    $contrasena = 'alvaro123root';
-    $base_de_datos = 'tiendaropa';
+    $usuario = 'alejandra';
+    $contrasena = 'alejandra';
+    $base_de_datos = 'db_tienda_ropa';
 
     $conexion = new MySQLi($servidor, $usuario, 
                                 $contrasena, $base_de_datos) 
