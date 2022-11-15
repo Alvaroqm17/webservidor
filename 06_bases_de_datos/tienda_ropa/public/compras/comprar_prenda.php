@@ -13,11 +13,21 @@
 
     <?php
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            $prenda = $_POST["prenda"];
+            $prenda_id = $_POST["prenda"];
             $cantidad = $_POST["cantidad"];
+            $cliente_id = 10;
+            $fecha = date('Y-m-d H:i:s');   //  2022-11-15 09:25
 
-            echo "<p>ID Prenda: $prenda</p>";
-            echo "<p>Cantidad: $cantidad</p>";
+            $sql = "INSERT INTO clientes_prendas 
+                (cliente_id, prenda_id, cantidad, fecha) 
+                VALUES 
+                ('$cliente_id', '$prenda_id', '$cantidad', '$fecha')";
+
+            if ($conexion -> query($sql) == "TRUE") {
+                echo "<p>Compra realizada</p>";
+            } else {
+                echo "<p>Error al comprar</p>";
+            }
         }
     ?>
 
