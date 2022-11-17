@@ -15,8 +15,11 @@
     <?php
         if($_SERVER["REQUEST_METHOD"] == "POST"){
             $usuario = $_POST["usuario"];
-            $contrasena = $_POST["contrasena"];
             $nombre = $_POST["nombre"];
+            $primer_apellido = $_POST["primer_apellido"];
+            $segundo_apellido = $_POST["segundo_apellido"];
+            $contrasena = $_POST["contrasena"];
+            $fecha = $_POST["fecha_nacimiento"];
 
             $hash_contrasena=password_hash($contrasena, PASSWORD_DEFAULT);
 
@@ -25,11 +28,12 @@
             echo "<p> Nombre $nombre</p>";
             echo "<p> hash $hash_contrasena </p>";
 
-            $sql = "INSERT INTO clientes(usuario,contrasena,nombre)
-            VALUES ('$usuario','$contrasena','$nombre')";
+            $sql = "INSERT INTO clientes(usuario,nombre,primer_apellido,segundo_apellido,fecha_nacimiento,contrasena)
+            VALUES ('$usuario','$nombre','$primer_apellido','$segundo_apellido','$fecha','$hash_contrasena')";
 
             if($conexion -> query($sql) == "TRUE") {
                 echo "<p>Usuario registrado </p>";
+                header("location: iniciar_sesion.php");
             } else {
                 echo "<p>Error en el registro </p>";
             }
@@ -45,12 +49,24 @@
                         <input type="text" class="form-control" name="usuario">
                     </div>
                     <div class="form-group mb-3">
+                        <label class="form-label">Nombre</label>
+                        <input type="text" class="form-control" name="nombre">
+                    </div>
+                    <div class="form-group mb-3">
+                        <label class="form-label">Primer apellido</label>
+                        <input type="text" class="form-control" name="primer_apellido">
+                    </div>
+                    <div class="form-group mb-3">
+                        <label class="form-label">Segundo apellido</label>
+                        <input type="text" class="form-control" name="segundo_apellido">
+                    </div>
+                    <div class="form-group mb-3">
                         <label class="form-label">Contraseña</label>
                         <input type="password" class="form-control" name="contrasena">
                     </div>
                     <div class="form-group mb-3">
-                        <label class="form-label">Nombre</label>
-                        <input type="text" class="form-control" name="nombre">
+                        <label class="form-label">Fecha de nacimiento</label>
+                        <input class="form-control" type="date" name="fecha_nacimiento">
                     </div>
                     <div>
                     <button class="btn btn-info" type="submit">Registrarse</button>

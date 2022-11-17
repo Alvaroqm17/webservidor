@@ -29,6 +29,9 @@
 
             if($acceso_valido == "TRUE") {
                 echo "<h2> Acceso valido </h2>";
+                session_start();
+                $_SESSION["usuario"] = $usuario;
+                header("location: index.php");
             }else{
                 echo "<h2> Acceso Invalido </h2>";
             }

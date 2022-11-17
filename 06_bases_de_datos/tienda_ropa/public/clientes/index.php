@@ -16,8 +16,6 @@
 
         <div class="row">
             <div class="col-9">
-                <br>
-                <a class="btn btn-primary" href="insertar_cliente.php">Nuevo cliente</a>
                 <br><br>
                 <table class="table table-striped table-hover">
                     <thead class="table-dark">
