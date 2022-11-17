@@ -35,7 +35,7 @@
                     </thead>
                     <tbody>
                         <?php
-                        $sql = "SELECT * FROM vw_clientes_prendas
+                        $sql = "SELECT * FROM clientes_prendas
                                     WHERE usuario = '$usuario'";
                         
                         $resultado = $conexion -> query($sql);
