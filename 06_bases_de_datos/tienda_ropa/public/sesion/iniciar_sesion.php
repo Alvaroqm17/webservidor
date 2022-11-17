@@ -12,7 +12,7 @@
 <body>
 <div class="container">
 <?php require '../../util/base_de_datos.php' ?>
-<?php require '../header.php' ?>
+
 <?php
     if($_SERVER["REQUEST_METHOD"] == "POST") {
         $usuario = $_POST["usuario"];
@@ -24,6 +24,7 @@
         if($resultado -> num_rows >0) {
             while($fila = $resultado -> fetch_assoc()){
                 $hash_contrasena = $fila["contrasena"];
+                $rol = $fila["rol"];
             }
             $acceso_valido = password_verify($contrasena, $hash_contrasena);
 
@@ -31,6 +32,7 @@
                 echo "<h2> Acceso valido </h2>";
                 session_start();
                 $_SESSION["usuario"] = $usuario;
+                $_SESSION["rol"] = $rol;
                 header("location: index.php");
             }else{
                 echo "<h2> Acceso Invalido </h2>";

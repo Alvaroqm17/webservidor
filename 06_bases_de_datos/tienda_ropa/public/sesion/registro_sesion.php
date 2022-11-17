@@ -20,16 +20,13 @@
             $segundo_apellido = $_POST["segundo_apellido"];
             $contrasena = $_POST["contrasena"];
             $fecha = $_POST["fecha_nacimiento"];
+            $rol = $_POST["rol"];
 
             $hash_contrasena=password_hash($contrasena, PASSWORD_DEFAULT);
 
-            echo "<p> Usuario $usuario </p>";
-            echo "<p> contrasena $contrasena </p>";
-            echo "<p> Nombre $nombre</p>";
-            echo "<p> hash $hash_contrasena </p>";
 
-            $sql = "INSERT INTO clientes(usuario,nombre,primer_apellido,segundo_apellido,fecha_nacimiento,contrasena)
-            VALUES ('$usuario','$nombre','$primer_apellido','$segundo_apellido','$fecha','$hash_contrasena')";
+            $sql = "INSERT INTO clientes(usuario,nombre,primer_apellido,segundo_apellido,fecha_nacimiento,contrasena,rol)
+            VALUES ('$usuario','$nombre','$primer_apellido','$segundo_apellido','$fecha','$hash_contrasena','$rol')";
 
             if($conexion -> query($sql) == "TRUE") {
                 echo "<p>Usuario registrado </p>";
@@ -67,6 +64,14 @@
                     <div class="form-group mb-3">
                         <label class="form-label">Fecha de nacimiento</label>
                         <input class="form-control" type="date" name="fecha_nacimiento">
+                    </div>
+                    <div class="form-group mb-3">
+                        <label class="form-label">Rol</label>
+                        <select class="form-select" name="rol">
+                            <option value="" selected disabled hidden>-- Selecciona la talla --</option>
+                            <option value="administrador">Administrador</option>
+                            <option value="usuario">Usuario</option>
+                        </select>
                     </div>
                     <div>
                     <button class="btn btn-info" type="submit">Registrarse</button>
