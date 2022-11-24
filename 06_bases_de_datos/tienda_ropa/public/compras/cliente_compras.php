@@ -47,10 +47,12 @@
                                 $cantidad = $fila["cantidad"];
                                 $precio_unitario = $fila["precio_unitario"];
                                 $fecha = $fila["fecha"];
+                                $cliente_nombre =$fila["cliente_nombre"];
+                                $prenda_nombre =$fila["prenda_nombre"];
                                 $precio_total += ($precio_unitario * $cantidad);
                                 ?>
                                 <tr>
-                                    <td><?php echo $producto ?></td>
+                                    <td><?php echo $cliente_nombre ?></td>
                                     <td><?php echo $cantidad ?></td>
                                     <td><?php echo $precio_unitario ?></td>
                                     <td><?php echo $precio_unitario*$cantidad ?></td>

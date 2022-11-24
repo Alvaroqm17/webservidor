@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="" rel="stylesheet">
+    <link href="iniciar_sesion.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 
-    <title>Document</title>
+    <title>Login</title>
 </head>
 <body>
 <div class="container">
@@ -25,6 +25,7 @@
             while($fila = $resultado -> fetch_assoc()){
                 $hash_contrasena = $fila["contrasena"];
                 $rol = $fila["rol"];
+                $id = $fila["id"];
             }
             $acceso_valido = password_verify($contrasena, $hash_contrasena);
 
@@ -33,6 +34,7 @@
                 session_start();
                 $_SESSION["usuario"] = $usuario;
                 $_SESSION["rol"] = $rol;
+                $_SESSION["id"] = $id;
                 header("location: index.php");
             }else{
                 echo "<h2> Acceso Invalido </h2>";
@@ -40,10 +42,9 @@
         }
     }
     ?>
-        <h1>Inicio sesion</h1>
-        <div class="row">
-            <div class = "col-9">
-                <form action="" method="post">
+        <div class="abs-center">
+                <form action="" method="post" class="border p-3 form">
+                    <h1>Login</h1>
                     <div class="form-group mb-3">
                         <label class="form-label">Usuario</label>
                         <input type="text" class="form-control" name="usuario">
@@ -52,10 +53,10 @@
                         <label class="form-label">Contraseña</label>
                         <input type="password" class="form-control" name="contrasena">
                     </div>
-                    <div>
-                    <button class="btn btn-info" type="submit">Iniciar sesion</button>
-                    <a class="btn btn-secondary" href="registro_sesion.php">Registrate</a>
-</div>
+                    <div class="botones">
+                    <button class="btn btn-danger" type="submit">Iniciar sesion</button>
+                    <a id="registro" class="btn btn-success" href="registro_sesion.php">Registrate</a>
+                    </div>
                 </form>
             </div>
         </div>

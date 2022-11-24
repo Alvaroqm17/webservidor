@@ -11,7 +11,6 @@
 <body>
     <div class="container">
     <?php require '../../util/base_de_datos.php' ?>
-    <?php require '../header.php' ?>
     <?php
         if($_SERVER["REQUEST_METHOD"] == "POST"){
             $usuario = $_POST["usuario"];

@@ -1,0 +1,27 @@
+.abs-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+  }
+  
+  .form {
+    width: 450px;
+    color: white;
+    border-radius: 2%;
+  }
+
+body{
+    background-image: url("../../resources/images/ropa-fondo-2-600x400.jpg");
+}
+
+#registro{
+    margin-left: 15%;
+}
+
+.botones{
+    margin-left:15%;
+    margin-top: 8%;
+}
+
+

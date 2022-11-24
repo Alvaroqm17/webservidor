@@ -33,17 +33,17 @@
 
                         if ($resultado -> num_rows > 0) {
                             while ($fila = $resultado -> fetch_assoc()) {
-                                $usuario = $fila["usuario"];
-                                $producto = $fila["producto"];
+                                $cliente_id = $fila["cliente_id"];
+                                $prenda_id = $fila["prenda_id"];
                                 $cantidad = $fila["cantidad"];
-                                $precio_unitario = $fila["precio_unitario"];
                                 $fecha = $fila["fecha"];
+                                $cliente_nombre = $fila["cliente_nombre"];
+                                $prenda_nombre = $fila["prenda_nombre"];
                                 ?>
                                 <tr>
-                                    <td><a href="./cliente_compras.php?usuario=<?php echo $usuario ?>"><?php echo $usuario ?></a></td>
-                                    <td><?php echo $producto ?></td>
+                                    <td><?php echo $cliente_nombre ?></td>
+                                    <td><?php echo $prenda_nombre ?></td>
                                     <td><?php echo $cantidad ?></td>
-                                    <td><?php echo $precio_unitario ?></td>
                                     <td><?php echo $fecha ?></td>
                                 </tr>
                                 <?php

@@ -20,18 +20,32 @@
 
             $usuario = $_SESSION["usuario"];
 
-            $sql = "SELECT * FROM clientes WHERE usuario = '$usuario";
+            $sql = "SELECT * FROM clientes WHERE usuario = '$usuario'";
 
             $resultado = $conexion -> query($sql);
             if($resultado -> num_rows >0){
                 while($fila = $resultado -> fetch_assoc()){
                     $cliente_id = $fila["id"];
+                    $cliente_nombre =$fila["nombre"];
+
                 }
             }
+
+            $sql = "SELECT * FROM prendas WHERE id = '$prenda_id'";
+
+            $resultado = $conexion -> query($sql);
+            if($resultado -> num_rows >0){
+                while($fila = $resultado -> fetch_assoc()){
+                    $prenda_nombre = $fila["nombre"];
+                }
+            }
+
+            
+
             $sql = "INSERT INTO clientes_prendas 
-                (cliente_id, prenda_id, cantidad, fecha) 
+                (cliente_id, prenda_id, cantidad, fecha, cliente_nombre, prenda_nombre) 
                 VALUES 
-                ('$cliente_id', '$prenda_id', '$cantidad', '$fecha')";
+                ('$cliente_id', '$prenda_id', '$cantidad', '$fecha', '$cliente_nombre', '$prenda_nombre')";
 
             if ($conexion -> query($sql) == "TRUE") {
                 echo "<p>Compra realizada</p>";
