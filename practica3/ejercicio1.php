@@ -177,100 +177,77 @@
     <!--EJERCICIO 5-->
 
     <?php
-
-    $datos=[];
-
-    if($_SERVER["REQUEST_METHOD"] == "POST"){
-        $nombrePersona=$_POST["nombrePersona"];
-        $dniPersona=$_POST["dniPersona"];
-    }
-    if(empty($nombrePersona)){
-        $err_nombre="El nombre es obligatorio";
-    }
-    if (empty($dniPersona)) {
-        $err_dni = "El dni es obligatorio";
-    } else {
-        $pattern = "/^[0-9]{8}[A-Za-z]$/";
-        if (!preg_match($pattern, $dniPersona)) {
-            $err_dni = "El dni tiene 8 numeros y una letra";
-        } else {
-            $letraNUM=(substr($dniPersona,0,8)%23);
-            if($letraNUM>=0 && $letraNUM<=22){
-                $letra = match ($letraNUM){
-                    0 => 'T',
-                    1 => 'R',
-                    2 => 'W',
-                    3 => 'A',
-                    4 => 'G',
-                    5 => 'M',
-                    6 => 'Y',
-                    7 => 'F',
-                    8 => 'P',
-                    9 => 'D',
-                    10 => 'X',
-                    11 => 'B',
-                    12 => 'N',
-                    13 => 'J',
-                    14 => 'Z',
-                    15 => 'S',
-                    16 => 'Q',
-                    17 => 'V',
-                    18 => 'H',
-                    19 => 'L',
-                    20 => 'C',
-                    21 => 'K',
-                    22 => 'E',
-                };
-                if($letra[0]==strtoupper($dniPersona[8])){
-                    $dni = $dniPersona;
+        $identificador=array(
+        array("Alvaro","75923738W") ,
+        array("Elena","12345678A") ,
+        array("Gonzalo","85412456N")
+        );
+        ?>
+    <table class="table table-dark">
+        <tr>
+            <th>Nombre</th>
+            <th>DNI</th>
+            <th>dni in/correcto</th>
+        </tr>
+        <?php
+        foreach ($identificador as $DN) {
+            list($nombre,$temp_DNI)=$DN;
+        ?>
+        <tr>
+            <td><?php echo $nombre?></td>
+            <td><?php echo $temp_DNI ?></td>
+            <td><?php echo validador($temp_DNI) ?></td>
+        </tr>
+        <?php
+        }
+        function validador($temp_DNI){
+            $patternDNI ="/^[0-9]{8}[A-Z]+$/"; 
+                if(strlen($temp_DNI)>=10 && strlen($temp_DNI)<=8){
+                    $err_DNI="El DNI no tiene sufiecientes caracteres o sobran";
                 }else{
-                    $err_dni = "El dni no puede ser mayor de 9 caracteres";
+                    if(preg_match($patternDNI,$temp_DNI)){            
+                                $resultado=(int)$temp_DNI%23;
+                                $letra = match($resultado){
+                                    0 => "T",
+                                    1 => "R",
+                                    2 => "W",
+                                    3 => "A",
+                                    4 => "G",
+                                    5 => "M",
+                                    6 => "Y",
+                                    7 => "F",
+                                    8 => "P",
+                                    9 => "D",
+                                    10 => "X",
+                                    11 => "B",
+                                    12 => "N",
+                                    13 => "J",
+                                    14 => "Z",
+                                    15 => "S",
+                                    16 => "Q",
+                                    17 => "V",
+                                    18 => "H",
+                                    19 => "L",
+                                    20 => "C",
+                                    21 => "K",
+                                    22 => "E",
+                                };          
+                                
+                    }else{
+                        $err_DNI="<p>$temp_DNI no sigue el patron</p>";
+                    }
+                }
+                if(($letra == substr($temp_DNI,-1))==true){
+                    return "Si es valido".$letra;
+                }else{
+                if(($letra == substr($temp_DNI,-1))==false) {
+                    return "NO es valido $letra";
+                }else {
+                    return"esto";
                 }
             }
-        }
-    }
-
-    if(isset($dni) && isset($nombrePersona)) {
-    array_push($datos,$dni,$nombrePersona);
-    }
-    ?>
-
-    <form action="" method="post">
-        <label class="form-label">Nombre</label>
-        <input type="text" placeholder="Escribe tu nombre" name="nombrePersona" class="form-control">
-        <span class="error">
-            * <?php if(isset($err_dni)) echo $err_dni ?>
-        </span>
-        <label class="form-label">Dni</label>
-        <input type="text" placeholder="Escribe tu dni" name="dniPersona" class="form-control">
-        <span class="error">
-            * <?php if(isset($err_nombre)) echo $err_nombre ?>
-        </span>
-        <button class="btn btn-primary" type="submit">Crear</button>
-    </form>
-
-    <table class="table table-dark table-striped">
-        <tr>
-            <td>Dni</td>
-            <td>Nombre</td>
-        </tr>
-        <?php
-            
-            foreach($datos as $datosPersonas){
-            list($dniPersona,$nombrePersona)=$datosPersonas;
-        
+            }
         ?>
-        <tr>
-            <td><?php echo $dniPersona ?></td>
-            <td><?php echo $nombrePersona ?></td>
-        </tr>
-        <?php
-        }
-        ?>
-    </table>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous">
-    </script>
 </body>
 
 </html>

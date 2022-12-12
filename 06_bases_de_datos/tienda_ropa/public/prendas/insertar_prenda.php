@@ -24,6 +24,18 @@
             $file_temp_name = $_FILES["imagen"]["tmp_name"];
             $path = "../../resources/images/prendas/" . $file_name;
 
+            if(empty($nombre)){
+                $err_nombre="El nombre es obligatorio";
+            } if(empty($talla)){
+                $err_talla="La talla es obligatoria";
+            } if(empty($precio)){
+                $err_precio="El precio es obligatorio";
+            } if(empty($categoria)){
+                $err_categoria="La categoria es obligatoria";
+            }if(empty($imagen)){
+                $err_imagen="Es obligatorio insertar la imagen del producto";
+            }
+
             if (!empty($nombre) && !empty($talla) && !empty($precio)) {
                 //  Subimos la imagen a la carpeta deseada
                 if (move_uploaded_file($file_temp_name, $path)) {
@@ -68,6 +80,7 @@
                     <div class="form-group mb-3" >
                         <label class="form-label">Nombre</label>
                         <input class="form-control" type="text" name="nombre">
+                        <span class="error"><?php if(isset($err_nombre)) echo $err_nombre ?></span>
                     </div>
                     <div class="form-group mb-3">
                         <label class="form-label">Talla</label>
@@ -79,10 +92,14 @@
                             <option value="L">L</option>
                             <option value="XL">XL</option>
                         </select>
+                        <span class="error"><?php if(isset($err_talla)) echo $err_talla ?></span>
+
                     </div>
                     <div class="form-group mb-3">
                         <label class="form-label">Precio</label>
                         <input class="form-control" type="text" name="precio">
+                        <span class="error"><?php if(isset($err_precio)) echo $err_precio ?></span>
+
                     </div>
                     <div class="form-group mb-3">
                         <label class="form-label">Categoría</label>
@@ -92,10 +109,16 @@
                             <option value="PANTALONES">Pantalones</option>
                             <option value="ACCESORIOS">Accesorios</option>
                         </select>
+                        <span class="error"><?php if(isset($err_categoria)) echo $err_categoria ?></span>
+
                     </div>
                     <div class="form-group mb-3">
                         <label class="form-label">Imagen</label>
                         <input class="form-control" type="file" name="imagen">
+                        <span class="error">
+                            * <?php if(isset($err_imagen)) echo $err_imagen ?>
+                        </span>
+
                     </div>
                     <button class="btn btn-primary" type="submit">Crear</button>
                     <a class="btn btn-secondary" href="index.php">Volver</a>

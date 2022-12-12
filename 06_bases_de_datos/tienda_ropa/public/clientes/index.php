@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <title>Clientes</title>
+    <link href='https://unpkg.com/css.gg/icons/all.css' rel='stylesheet'>
 </head>
 <body>
     <div class="container">
@@ -91,8 +92,8 @@
                                         <td><?php echo $segundo_apellido ?></td>
                                         <td><?php echo $fecha_nacimiento ?></td>
                                         <td>
-                                            <form action="mostrar_prenda.php" method="get">
-                                                <button class="btn btn-primary" type="submit">Ver</button>
+                                            <form action="../prendas/mostrar_prenda.php" method="get">
+                                                <button class="btn btn-primary" type="submit"><i class="gg-eye"></i></button>
                                                 <input type="hidden" name="id" value="<?php echo $fila["id"] ?>">
                                             </form>
                                         </td>

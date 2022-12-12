@@ -12,17 +12,30 @@
 
 <body>
     <div class="container">
+        <?php require 'header.php' ?>
         <div class="row">
             <div class="col-9">
-                <?php require 'header.php' ?>
                 <br>
                 <h1>¡Bienvenid@ a nuestra tienda!</h1>
                 <h3>Inicia sesion para acceder a la pagina</h3>
                 <a href="http://localhost/webservidor/06_bases_de_datos/tienda_ropa/public/sesion/desconectarse.php">cerrar
                     sesion</a>
+</br>
 
 
-                <p>Esto lo puede ver todo el mundo</p>
+                <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img height="350" width="100" src="..\resources\images\ofertaCarousel.jpg" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img height="350" width="100" src="..\resources\images\ropaCarousel.jpg" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img height="350" width="100" src="..\resources\images\atardecerCarousel.jpg" class="d-block w-100" alt="...">
+                        </div>
+                    </div>
+                </div>
                 <?php
                  if($_SESSION["rol"] == "administrador"){  ?>
                 <p>Esto solo lo ven los admins</p>

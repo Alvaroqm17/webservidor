@@ -9,9 +9,9 @@
 </head>
 <body>
     <?php require '../../util/base_de_datos.php' ?>
-    <?php require '../header.php' ?>
 
     <div class="container">
+    <?php require '../header.php' ?>
     <h1>Listado de compras</h1>
 
         <div class="row">

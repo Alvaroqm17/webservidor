@@ -1,6 +1,7 @@
 <nav class="navbar navbar-expand-lg bg-light">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">
+        <link href='https://unpkg.com/css.gg/icons/all.css' rel='stylesheet'>
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-shop"
                 viewBox="0 0 16 16">
                 <path
@@ -32,10 +33,10 @@
                     href="http://localhost/webservidor/06_bases_de_datos/tienda_ropa/public/compras/comprar_prenda.php">Nueva
                     compra</a>
                 <a class="nav-link"
-                    href="http://localhost/webservidor/06_bases_de_datos/tienda_ropa/public/sesion/iniciar_sesion.php">Login</a>
-                <a class="nav-link"
                     href="http://localhost/webservidor/06_bases_de_datos/tienda_ropa/public/compras/mis_compras.php">Mis
                     compras</a>
+                    <a class="nav-link"
+                    href="http://localhost/webservidor/06_bases_de_datos/tienda_ropa/public/sesion/iniciar_sesion.php"><i class="gg-user"></i></a>
 
                 <?php } ?>
                 <?php if($_SESSION["rol"] == "usuario") { ?>
@@ -47,6 +48,8 @@
                 <a class="nav-link"
                     href="http://localhost/webservidor/06_bases_de_datos/tienda_ropa/public/compras/mis_compras.php">Mis
                     compras</a>
+                    <a class="nav-link"
+                    href="http://localhost/webservidor/06_bases_de_datos/tienda_ropa/public/sesion/iniciar_sesion.php"><i class="gg-user"></i></a>
 
                 <?php }?>
             </div>

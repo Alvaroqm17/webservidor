@@ -8,7 +8,6 @@
     <title>Comprar prenda</title>
 </head>
 <body>
-    <?php require '../header.php' ?>
     <?php require '../../util/base_de_datos.php' ?>
 
     <?php
@@ -56,6 +55,8 @@
     ?>
 
     <div class="container">
+    <?php require '../header.php' ?>
+
         <h1>Comprar prenda</h1>
 
         <div class="row">
